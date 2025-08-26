@@ -2,6 +2,22 @@ apiVersion: v1
 entries:
   trustify:
   - apiVersion: v2
+    appVersion: 0.3.5
+    created: "2025-08-26T13:05:24.2710619Z"
+    description: A Helm chart for managing Trustify services on Kubernetes
+    digest: b557a4b667340ed83a0e6ccdfd23ec3ac52af36f504d50c0bc197f4772ef7f7f
+    home: https://trustification.io
+    icon: https://raw.githubusercontent.com/trustification/trustification/main/docs/branding/svg/trustification_icon_default.svg
+    kubeVersion: ^1.29.0
+    maintainers:
+    - email: jreimann@redhat.com
+      name: ctron
+    name: trustify
+    type: application
+    urls:
+    - https://github.com/desmax74/trustify-helm-charts/releases/download/trustify-0.2.4/trustify-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
     appVersion: 0.1.0-alpha.28
     created: "2024-12-06T14:40:13.633378279Z"
     description: A Helm chart for managing Trustify services on Kubernetes
@@ -180,6 +196,43 @@ entries:
   trustify-infrastructure:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2025-08-26T13:05:24.606880755Z"
+    dependencies:
+    - condition: keycloak.enabled
+      name: keycloak
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 24.4.9
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 16.4.7
+    - condition: jaeger.enabled
+      name: jaeger
+      repository: https://jaegertracing.github.io/helm-charts
+      version: 3.3.3
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 27.1.0
+    - condition: opentelemetry-collector.enabled
+      name: opentelemetry-collector
+      repository: https://open-telemetry.github.io/opentelemetry-helm-charts
+      version: 0.126.0
+    description: A Helm chart for setting up self-hosted infrastructure components
+      for using Trustify
+    digest: 22eb6fe6519ea21581d5768c7eda9066776b11222854bf514a51f9f65c9eac93
+    home: https://trustification.io
+    icon: https://raw.githubusercontent.com/trustification/trustification/main/docs/branding/svg/trustification_icon_default.svg
+    maintainers:
+    - email: jreimann@redhat.com
+      name: ctron
+    name: trustify-infrastructure
+    type: application
+    urls:
+    - https://github.com/desmax74/trustify-helm-charts/releases/download/trustify-infrastructure-0.1.3/trustify-infrastructure-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2024-11-18T13:33:41.937067257Z"
     dependencies:
     - condition: keycloak.enabled
@@ -203,4 +256,4 @@ entries:
     urls:
     - https://github.com/trustification/trustify-helm-charts/releases/download/trustify-infrastructure-0.1.0/trustify-infrastructure-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-06T14:40:13.633457368Z"
+generated: "2025-08-26T13:05:24.606950776Z"
